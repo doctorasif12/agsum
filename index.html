@@ -77,7 +77,7 @@
     font-family:'Space Grotesk',sans-serif;
     text-decoration:none;
   }
-  .brandmark img.logo{height:46px;width:auto;flex-shrink:0;}
+  .brandmark img.logo{height:54px;width:auto;flex-shrink:0;}
   .brandmark .brand-text{display:flex;flex-direction:column;line-height:1.1;}
   .brandmark .name{font-size:17px;font-weight:700;color:var(--black);}
   .brandmark .est{font-size:10.5px;font-weight:500;color:var(--grey-600);letter-spacing:0.06em;margin-top:4px;}
@@ -87,13 +87,13 @@
     padding:6px 2px;border-bottom:2px solid transparent;
   }
   nav.links a:hover{border-color:var(--magenta);}
-  .nav-cta{
+  .nav-cta, nav.links a.nav-cta{
     background:var(--magenta);color:var(--white);
     padding:11px 20px;border-radius:2px;
     font-weight:600;font-size:14px;text-decoration:none;
     white-space:nowrap;
   }
-  .nav-cta:hover{background:var(--magenta-dark);}
+  .nav-cta:hover, nav.links a.nav-cta:hover{background:var(--magenta-dark);color:var(--white);}
   .burger{
     display:none;
     background:none;border:none;cursor:pointer;
@@ -240,6 +240,21 @@
   .item-card h4{font-size:18px;margin-bottom:9px;line-height:1.25;}
   .item-card p{font-size:14.5px;color:var(--grey-600);}
 
+  .price-groups{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+  @media (max-width:820px){ .price-groups{grid-template-columns:1fr;} }
+  .price-group{margin-bottom:8px;}
+  .price-group h4{
+    font-size:12.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;
+    color:var(--black);margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--magenta);
+  }
+  .price-list{border:1px solid var(--grey-300);}
+  .price-row{
+    padding:11px 16px;border-bottom:1px solid var(--grey-300);font-size:14.5px;
+  }
+  .price-row:last-child{border-bottom:none;}
+  .price-row .pname{color:var(--black);}
+  .menu-note{font-size:13px;color:var(--grey-600);margin-top:28px;}
+
   /* ---------- Photo Gallery ---------- */
   #gallery{background:var(--grey-100);}
   .gal-grid{
@@ -269,6 +284,23 @@
   .gal-tile.span2{grid-column:span 2;}
   .gal-tile.row2{grid-row:span 2;}
   .gal-note{font-size:13.5px;color:var(--grey-600);margin-top:24px;max-width:60ch;}
+
+  /* ---------- Awards & Recognition ---------- */
+  #awards{background:var(--grey-100);}
+  .awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:900px){ .awards-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:620px){ .awards-grid{grid-template-columns:1fr;} }
+  .award-card{background:var(--white);border:1px solid var(--grey-300);display:flex;flex-direction:column;}
+  .award-card .award-img{
+    background:var(--grey-900); display:flex; align-items:center; justify-content:center;
+    height:230px; overflow:hidden;
+  }
+  .award-card .award-img img{width:100%;height:100%;object-fit:contain;}
+  .award-card .award-body{padding:20px 22px;}
+  .award-card .award-year{font-size:12px;font-weight:600;color:var(--magenta);display:block;margin-bottom:8px;}
+  .award-card h4{font-size:16.5px;margin-bottom:8px;line-height:1.3;}
+  .award-card p{font-size:14px;color:var(--grey-600);margin-bottom:6px;}
+  .award-card .award-meta{font-size:12.5px;color:var(--grey-600);}
 
   /* ---------- Franchise ---------- */
   #franchise{background:var(--black);color:var(--white);}
@@ -340,7 +372,7 @@
 <header>
   <div class="nav-inner">
     <a href="#top" class="brandmark">
-      <img class="logo" src="images/logo-badge.png" alt="Abdul Gafoor Suleman Usman Mithaiwala emblem">
+      <img class="logo" src="images/logo-icon.png" alt="Abdul Gafoor Suleman Usman Mithaiwala emblem">
       <span class="brand-text">
         <span class="name">Abdul Gafoor Suleman Usman Mithaiwala</span>
         <span class="est">HERITAGE MITHAI, HALWA &amp; BAKERY · SINCE 1926</span>
@@ -354,6 +386,7 @@
       <a href="#presence">Our Presence</a>
       <a href="#menu">Menu</a>
       <a href="#gallery">Photo Gallery</a>
+      <a href="#awards">Awards</a>
       <a href="#contact">Contact Us</a>
       <a href="#franchise" class="nav-cta">Become a Franchisee</a>
     </nav>
@@ -376,8 +409,7 @@
       </div>
       <div class="hero-seal">
         <img src="images/logo-icon.png" alt="Abdul Gafoor Suleman Usman Mithaiwala emblem">
-        <div class="seal-title">Est. 1926</div>
-        <div class="seal-sub">Registered Trademark · Three Generations Strong</div>
+        <div class="seal-sub">Registered Trademark</div>
       </div>
     </div>
   </section>
@@ -454,11 +486,11 @@
           <h4>Saudi Arabia</h4>
           <span class="region">Gulf region</span>
         </div>
-        <div class="presence-card" style="display:flex;flex-direction:column;justify-content:center;background:var(--black);border-color:var(--black);">
+        <a href="#franchise" class="presence-card" style="display:flex;flex-direction:column;justify-content:center;background:var(--black);border-color:var(--black);text-decoration:none;cursor:pointer;">
           <span class="count" style="color:#FF6FB2;">+</span>
           <h4 style="color:var(--white);">Your city, next</h4>
           <span class="region" style="color:rgba(255,255,255,0.65);">Franchise enquiries open</span>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -468,51 +500,215 @@
     <div class="wrap">
       <div class="menu-head">
         <span class="label">Menu</span>
-        <h2>Mithai, halwa and bakery — made the traditional way</h2>
+        <h2>Our full range, straight from the shop counter</h2>
         <p>Every item is made the traditional way, with slow-cooked mawa, pure ghee and recipes that go back to 1926.</p>
       </div>
 
       <div class="tabs" role="tablist">
-        <button class="tab-btn active" data-tab="mithai" role="tab">Mithai &amp; Sweets</button>
-        <button class="tab-btn" data-tab="halwa" role="tab">Traditional Halwa</button>
-        <button class="tab-btn" data-tab="bakery" role="tab">Bombay Bakery</button>
+        <button class="tab-btn active" data-tab="aflatoon-halwa" role="tab">Aflatoon &amp; Halwa</button>
+        <button class="tab-btn" data-tab="burfi-peda-laddoo" role="tab">Burfi, Peda &amp; Laddoo</button>
+        <button class="tab-btn" data-tab="nankhatai-milk" role="tab">Nankhatai &amp; Milk Malai</button>
+        <button class="tab-btn" data-tab="jamun-karachi" role="tab">Gulab Jamun &amp; Karachi Halwa</button>
+        <button class="tab-btn" data-tab="katli-khaja" role="tab">Katli, Khaja &amp; Kaju Roll</button>
+        <button class="tab-btn" data-tab="biscuits-sugarfree" role="tab">Biscuits &amp; Sugar-Free</button>
       </div>
 
-      <div class="tab-panel active" id="panel-mithai">
-        <div class="card-grid">
-          <div class="item-card"><span class="tag">House signature</span><h4>Special Pista Aflatoon</h4><p>Slow-cooked semolina and mawa finished with saffron and pistachio — the sweet at the heart of the family name.</p></div>
-          <div class="item-card"><span class="tag">Gifting favourite</span><h4>Special Badam Aflatoon</h4><p>The house Aflatoon given an almond character, made for sharing and gifting alike.</p></div>
-          <div class="item-card"><span class="tag">Loaded with dry fruit</span><h4>Dry Fruit Aflatoon</h4><p>A generous, dry-fruit-forward variation of the original Bombay recipe.</p></div>
-          <div class="item-card"><span class="tag">Cashew forward</span><h4>Kaju Aflatoon</h4><p>A rich cashew take on the classic, for those who like their mithai extra indulgent.</p></div>
-          <div class="item-card"><span class="tag">The original</span><h4>Classic Aflatoon</h4><p>The traditional house Aflatoon, rich and aromatic, made from the founder's 1926 recipe.</p></div>
-          <div class="item-card"><span class="tag">Made fresh through the day</span><h4>Mawa Jalebi</h4><p>Crisp on the outside, dense and milky inside, soaked in fragrant saffron syrup.</p></div>
-          <div class="item-card"><span class="tag">Bombay classic</span><h4>Malpua with Rabdi</h4><p>A large, crisp-edged malpua served with rich, slow-reduced rabdi.</p></div>
-          <div class="item-card"><span class="tag">Festive gifting</span><h4>Mix Peda</h4><p>An assorted selection of traditional peda for celebrations and family occasions.</p></div>
-          <div class="item-card"><span class="tag">Festive milk sweet</span><h4>Pink Barfi</h4><p>A soft, colourful milk barfi with a distinctive festive presentation.</p></div>
-          <div class="item-card"><span class="tag">Layered &amp; rich</span><h4>Mawa Khaja</h4><p>Delicate layered khaja paired with the richness of mawa.</p></div>
-          <div class="item-card"><span class="tag">Served by the piece</span><h4>Matka Rabdi</h4><p>Creamy malai rabdi served in a traditional clay matka, the old-fashioned way.</p></div>
+      <div class="tab-panel active" id="panel-aflatoon-halwa">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Aflatoon</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Akhrot Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Badam Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Kaju Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Kaju Kanni Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Kishmish Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Plain Aflatoon</span></div>
+              <div class="price-row"><span class="pname">Sugar Free Aflatoon</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Halwa</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Aloe Vera Halwa</span></div>
+              <div class="price-row"><span class="pname">Anjeer Mix Halwa</span></div>
+              <div class="price-row"><span class="pname">Anjeer with Dryfruit Halwa</span></div>
+              <div class="price-row"><span class="pname">Dry Fruit Halwa</span></div>
+              <div class="price-row"><span class="pname">Dryfruit with Chilgoza</span></div>
+              <div class="price-row"><span class="pname">Honey Dryfruit Halwa</span></div>
+              <div class="price-row"><span class="pname">Kaju Malai Halwa</span></div>
+              <div class="price-row"><span class="pname">Walnut with Honey</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="tab-panel" id="panel-halwa">
-        <div class="card-grid">
-          <div class="item-card"><span class="tag">All dry fruit</span><h4>Dry Fruit Halwa</h4><p>A rich halwa finished with a generous mix of assorted dry fruits.</p></div>
-          <div class="item-card"><span class="tag">Deep &amp; nutty</span><h4>Akhrot Halwa</h4><p>Walnut halwa, slow-simmered for a deep, nutty character.</p></div>
-          <div class="item-card"><span class="tag">Naturally rich</span><h4>Anjeer Halwa</h4><p>Fig-based halwa with a naturally sweet, rich fruit profile.</p></div>
-          <div class="item-card"><span class="tag">Family favourite</span><h4>Gajar Halwa</h4><p>The familiar carrot halwa, slow-prepared and served rich with ghee and mawa.</p></div>
-          <div class="item-card"><span class="tag">Soft &amp; comforting</span><h4>Dudhi Halwa</h4><p>A traditional bottle-gourd halwa with a soft, comforting texture.</p></div>
+      <div class="tab-panel" id="panel-burfi-peda-laddoo">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Mawa Burfis</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Black Currant Burfi</span></div>
+              <div class="price-row"><span class="pname">Chocolate Burfi</span></div>
+              <div class="price-row"><span class="pname">Double Decker Burfi</span></div>
+              <div class="price-row"><span class="pname">Fruit Burfi</span></div>
+              <div class="price-row"><span class="pname">Mawa Sandwich Burfi</span></div>
+              <div class="price-row"><span class="pname">Punjabi Burfi</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Peda</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Green Peda</span></div>
+              <div class="price-row"><span class="pname">White Peda</span></div>
+              <div class="price-row"><span class="pname">Yellow Peda</span></div>
+              <div class="price-row"><span class="pname">Malai Peda</span></div>
+              <div class="price-row"><span class="pname">Mathura Peda</span></div>
+              <div class="price-row"><span class="pname">Badam Peda</span></div>
+              <div class="price-row"><span class="pname">Kesar Malai Peda</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Laddoo</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Besan Laddoo</span></div>
+              <div class="price-row"><span class="pname">Besan Laddoo (Desi Ghee)</span></div>
+              <div class="price-row"><span class="pname">Battisa Laddoo</span></div>
+              <div class="price-row"><span class="pname">Bundi Laddoo</span></div>
+              <div class="price-row"><span class="pname">Ding Laddoo</span></div>
+              <div class="price-row"><span class="pname">Methi Laddoo</span></div>
+              <div class="price-row"><span class="pname">Motichoor Laddoo</span></div>
+              <div class="price-row"><span class="pname">Motichoor Laddoo (Desi Ghee)</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Rawa</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Rawa</span></div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="tab-panel" id="panel-bakery">
-        <div class="card-grid">
-          <div class="item-card"><span class="tag">Tea-time favourite</span><h4>Nankhatai Rawa</h4><p>Crumbly, semolina-rich nankhatai made for sharing over tea.</p></div>
-          <div class="item-card"><span class="tag">Dry fruit enriched</span><h4>Nankhatai Dry Fruit</h4><p>The traditional nankhatai enriched with a handful of dry fruits.</p></div>
-          <div class="item-card"><span class="tag">Crisp &amp; flaky</span><h4>Maska Khari</h4><p>Crisp, flaky khari finished with a generous, buttery layer.</p></div>
-          <div class="item-card"><span class="tag">Toasted &amp; buttery</span><h4>Maska Pav Kadak</h4><p>Toasted pav with a crisp exterior and a rich, buttery character.</p></div>
-          <div class="item-card"><span class="tag">Aromatic &amp; crisp</span><h4>Jeera Butter</h4><p>A crisp baked bakery speciality finished with aromatic jeera.</p></div>
+      <div class="tab-panel" id="panel-nankhatai-milk">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Nan Khatai</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Double Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Kaju Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Mawa Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Plain Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Rawa Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Sulemani Nankhatai</span></div>
+              <div class="price-row"><span class="pname">Till Nankhatai</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Milk / Malai</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Apple Banana</span></div>
+              <div class="price-row"><span class="pname">Black Currant</span></div>
+              <div class="price-row"><span class="pname">Bounty</span></div>
+              <div class="price-row"><span class="pname">Doodhi Halwa</span></div>
+              <div class="price-row"><span class="pname">Kalakand</span></div>
+              <div class="price-row"><span class="pname">Malai Dhoodhi</span></div>
+              <div class="price-row"><span class="pname">Malai Cake</span></div>
+              <div class="price-row"><span class="pname">Mango Malai</span></div>
+              <div class="price-row"><span class="pname">Mango with Cheese</span></div>
+              <div class="price-row"><span class="pname">Milk Cake</span></div>
+              <div class="price-row"><span class="pname">Oreo Malai</span></div>
+              <div class="price-row"><span class="pname">Tender Coconut</span></div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div class="tab-panel" id="panel-jamun-karachi">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Gulab Jamun</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Anarkali Gulab Jamun</span></div>
+              <div class="price-row"><span class="pname">Angoori Gulab Jamun</span></div>
+              <div class="price-row"><span class="pname">Brown Gulab Jamun</span></div>
+              <div class="price-row"><span class="pname">Kala Jamun</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Karachi Halwa (Rubber)</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Anjeer</span></div>
+              <div class="price-row"><span class="pname">Green</span></div>
+              <div class="price-row"><span class="pname">Mangni</span></div>
+              <div class="price-row"><span class="pname">Orange</span></div>
+              <div class="price-row"><span class="pname">Pineapple</span></div>
+              <div class="price-row"><span class="pname">Strawberry</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-katli-khaja">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Katli</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Anjeer Katli</span></div>
+              <div class="price-row"><span class="pname">Chocolate Katli</span></div>
+              <div class="price-row"><span class="pname">Kaju Katli</span></div>
+              <div class="price-row"><span class="pname">Kesar Katli</span></div>
+              <div class="price-row"><span class="pname">Mango Katli</span></div>
+              <div class="price-row"><span class="pname">Pista Katli</span></div>
+              <div class="price-row"><span class="pname">Strawberry Katli</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Khaja</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Malai Khaja</span></div>
+              <div class="price-row"><span class="pname">Mawa Khaja</span></div>
+              <div class="price-row"><span class="pname">Mawa Patice</span></div>
+              <div class="price-row"><span class="pname">Mawa Puff</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Kaju Roll</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Choco-chips Kaju Roll</span></div>
+              <div class="price-row"><span class="pname">Chocolate Kaju Roll</span></div>
+              <div class="price-row"><span class="pname">Plain Kaju Roll</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-biscuits-sugarfree">
+        <div class="price-groups">
+          <div class="price-group">
+            <h4>Biscuits</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Badam Biscuit</span></div>
+              <div class="price-row"><span class="pname">Jam Biscuit</span></div>
+              <div class="price-row"><span class="pname">Kaju Biscuit</span></div>
+              <div class="price-row"><span class="pname">Pista Biscuit</span></div>
+              <div class="price-row"><span class="pname">Schusberry Biscuit</span></div>
+              <div class="price-row"><span class="pname">Till Makroom</span></div>
+              <div class="price-row"><span class="pname">Tutti Frutti Biscuit</span></div>
+              <div class="price-row"><span class="pname">Zeera Biscuit</span></div>
+            </div>
+          </div>
+          <div class="price-group">
+            <h4>Sugar Free</h4>
+            <div class="price-list">
+              <div class="price-row"><span class="pname">Anjeer Dryfruits</span></div>
+              <div class="price-row"><span class="pname">Khajoor Dryfruits</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="menu-note">Range as available at our Kurla (West), Mumbai outlet — availability may vary slightly by location. Please contact your nearest outlet for current pricing.</p>
     </div>
   </section>
 
@@ -522,19 +718,89 @@
       <div class="menu-head">
         <span class="label">Photo Gallery</span>
         <h2>A look inside the brand</h2>
-        <p>A glimpse of our storefront, signature sweets and family heritage. Add your own outlet and kitchen photography here as it becomes available.</p>
+        <p>A glimpse of our storefronts, signature sweets and outlet openings across India and the Gulf.</p>
       </div>
       <div class="gal-grid">
-        <div class="gal-tile span2 row2"><img src="https://www.agsulemanusmanmithaiwala.ae/images/storefront.jpg" alt="Flagship storefront" loading="lazy"><span>Flagship storefront</span></div>
-        <div class="gal-tile"><img src="https://www.agsulemanusmanmithaiwala.ae/images/special-butter-aflatoon-hero.jpg" alt="Special Butter Aflatoon" loading="lazy"><span>Special Butter Aflatoon</span></div>
-        <div class="gal-tile"><img src="https://www.agsulemanusmanmithaiwala.ae/images/special-pista-aflatoon.jpg" alt="Special Pista Aflatoon" loading="lazy"><span>Special Pista Aflatoon</span></div>
-        <div class="gal-tile"><img src="https://www.agsulemanusmanmithaiwala.ae/images/mawa-jalebi.jpg" alt="Mawa Jalebi" loading="lazy"><span>Mawa Jalebi</span></div>
-        <div class="gal-tile row2"><img src="https://www.agsulemanusmanmithaiwala.ae/images/malpua-rabdi.jpg" alt="Malpua with Rabdi" loading="lazy"><span>Malpua with Rabdi</span></div>
-        <div class="gal-tile span2"><img src="https://www.agsulemanusmanmithaiwala.ae/images/dryfruit-halwa.jpg" alt="Dry Fruit Halwa" loading="lazy"><span>Dry Fruit Halwa</span></div>
-        <div class="gal-tile"><img src="https://www.agsulemanusmanmithaiwala.ae/images/heritage/suleman-usman-founder-recreated-v2.jpg" alt="Founder Suleman Usman Mithaiwala" loading="lazy"><span>Founder · 1926</span></div>
-        <div class="gal-tile"><img src="https://www.agsulemanusmanmithaiwala.ae/images/heritage/abdul-gafoor-second-generation-recreated-v2.jpg" alt="Second generation Abdul Gafoor" loading="lazy"><span>Second Generation</span></div>
+        <div class="gal-tile span2 row2"><img src="images/gallery/flagship-storefront.jpg" alt="Flagship storefront, grand opening" loading="lazy"><span>Flagship storefront — grand opening</span></div>
+        <div class="gal-tile span2"><img src="images/gallery/restaurant-night.jpg" alt="Restaurant outlet at night" loading="lazy"><span>Restaurant outlet by night</span></div>
+        <div class="gal-tile row2"><img src="images/gallery/doodhi-halwa.webp" alt="Doodhi Halwa" loading="lazy"><span>Doodhi Halwa</span></div>
+        <div class="gal-tile"><img src="images/gallery/yellow-peda.jpg" alt="Yellow Peda" loading="lazy"><span>Yellow Peda</span></div>
+        <div class="gal-tile"><img src="images/gallery/gulf-outlet.jpg" alt="Gulf outlet storefront" loading="lazy"><span>Gulf outlet — Dubai · Sharjah · Riyadh</span></div>
+        <div class="gal-tile span2"><img src="images/gallery/anarkali-gulab-jamun.jpg" alt="Anarkali Gulab Jamun" loading="lazy"><span>Anarkali Gulab Jamun</span></div>
+        <div class="gal-tile"><img src="images/gallery/walnut-honey-halwa.jpg" alt="Walnut with Honey Halwa" loading="lazy"><span>Walnut with Honey Halwa</span></div>
+        <div class="gal-tile"><img src="images/gallery/mawa-patice.jpg" alt="Mawa Patice" loading="lazy"><span>Mawa Patice</span></div>
+        <div class="gal-tile"><img src="images/gallery/oreo-malai.png" alt="Oreo Malai" loading="lazy"><span>Oreo Malai</span></div>
+        <div class="gal-tile"><img src="images/gallery/outlet-opening.jpg" alt="New outlet opening" loading="lazy"><span>New outlet opening</span></div>
+        <div class="gal-tile"><img src="images/gallery/punjabi-burfi.webp" alt="Punjabi Burfi" loading="lazy"><span>Punjabi Burfi</span></div>
+        <div class="gal-tile"><img src="images/gallery/kala-jamun.png" alt="Kala Jamun" loading="lazy"><span>Kala Jamun</span></div>
       </div>
-      <p class="gal-note">Bakery-counter photography wasn't available to pull in for this section — add your own Nankhatai, Khari and bakery shots here once you have them.</p>
+    </div>
+  </section>
+
+  <!-- AWARDS & RECOGNITION -->
+  <section id="awards">
+    <div class="wrap">
+      <div class="menu-head">
+        <span class="label">Awards &amp; Recognition</span>
+        <h2>Recognised for our craft, on and off the counter</h2>
+        <p>Independent industry bodies and foundations across India have recognised our traditional sweets and the family's contribution to the mithai and bakery industry.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-international-honourable-2025.png" alt="International Honourable Award 2025 certificate" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2025</span>
+            <h4>International Honourable Award — Certificate of Excellence</h4>
+            <p>Awarded to Proprietor Zubair Gafoor Mithaiwala for achievement in Indian Traditional Sweets.</p>
+            <span class="award-meta">Certificate No. RJ/2025/IHA/1029 · 18 June 2025</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-creative-genius-2025.png" alt="Creative Genius Award 2025 certificate" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2025</span>
+            <h4>Creative Genius Award</h4>
+            <p>Recognised for creative sweets — Mango with Cheese and Honey Dry Fruit — in Indian Traditional Sweets.</p>
+            <span class="award-meta">Certificate No. RjK/2025/CGA/1005</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-excellence-achievement-2024.jpg" alt="Excellence in Achievement Award 2024 certificate" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2024</span>
+            <h4>The Excellence in Achievement Award</h4>
+            <p>Certificate of Achievement presented to Zubair Gafoor Mithaiwala for outstanding achievement in Indian Traditional Sweets.</p>
+            <span class="award-meta">Certificate No. MP/EAA/2K24/106 · 3 December 2024</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-real-warrior-2024.png" alt="Real Warrior Award 2024 plaque" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2024</span>
+            <h4>Bharat Ratna Dr. A.P.J. Abdul Kalam Real Warrior Award — "Gem of Society"</h4>
+            <p>Presented by the Late Haji Allah Diya Ansari Foundation (HADAF) to Zubair A. G. Suleman Usman Mithaiwala — Rising Star of the Sweets &amp; Foods Industry.</p>
+            <span class="award-meta">Ekta Chowk, Khadipar, Bhiwandi</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-international-pride-2024.png" alt="International Pride Award certificate" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2024</span>
+            <h4>International Pride Award — Certificate of Excellence</h4>
+            <p>In recognition of remarkable achievements and exceptional contributions to Indian traditional sweets — Best Proprietor.</p>
+            <span class="award-meta">Certificate No. RJ/IPA2023/10 · 27 January 2024</span>
+          </div>
+        </div>
+        <div class="award-card">
+          <div class="award-img"><img src="images/awards/award-indian-icon-2023.png" alt="Indian Icon Award 2023 certificate" loading="lazy"></div>
+          <div class="award-body">
+            <span class="award-year">2023</span>
+            <h4>Indian Icon Award</h4>
+            <p>Presented by the Gyan Uday Foundation, recognised by the Government of India, in the category of Indian Traditional Sweets — Best Proprietor.</p>
+            <span class="award-meta">Sr. No. RJ/KO/2023/1298 · 6 September 2023</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -640,6 +906,7 @@
           <li><a href="#presence">Our Presence</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#gallery">Photo Gallery</a></li>
+          <li><a href="#awards">Awards</a></li>
           <li><a href="#franchise">Become a Franchisee</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
@@ -656,7 +923,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Abdul Gafoor Suleman Usman Mithaiwala. All rights reserved.</span>
-      <span>Franchise enquiries welcome across India</span>
+      <span>Franchise enquiries are welcome globally</span>
     </div>
   </div>
 </footer>
