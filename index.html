@@ -178,6 +178,7 @@
   .gen-panel{border:1px solid var(--grey-300);}
   .gen-row{padding:22px 24px;border-bottom:1px solid var(--grey-300);}
   .gen-row:last-child{border-bottom:none;}
+  .gen-row .gen-photo{width:100%;height:180px;object-fit:cover;display:block;margin-bottom:16px;background:var(--grey-100);}
   .gen-row .g-tag{font-size:12px;font-weight:600;color:var(--magenta);margin-bottom:6px;display:block;}
   .gen-row h4{font-size:17px;margin-bottom:6px;}
   .gen-row p{font-size:14px;color:var(--grey-600);}
@@ -267,19 +268,11 @@
   @media (max-width:560px){ .gal-grid{grid-template-columns:1fr;grid-auto-rows:170px;} }
   .gal-tile{
     position:relative; overflow:hidden;
-    display:flex; align-items:flex-end;
-    color:var(--white);
     background:linear-gradient(160deg, var(--black), var(--magenta-dark));
   }
   .gal-tile img{
     position:absolute; inset:0; z-index:1;
     width:100%; height:100%; object-fit:cover;
-  }
-  .gal-tile span{
-    position:relative; z-index:2;
-    font-size:13.5px; font-weight:600;
-    padding:14px; width:100%;
-    background:linear-gradient(180deg, transparent, rgba(0,0,0,0.75));
   }
   .gal-tile.span2{grid-column:span 2;}
   .gal-tile.row2{grid-row:span 2;}
@@ -434,18 +427,21 @@
       </div>
       <div class="gen-panel">
         <div class="gen-row">
+          <img class="gen-photo" src="photo-1.jpg" alt="">
           <span class="g-tag">1926 · Founder</span>
           <h4>Suleman Usman Mithaiwala</h4>
           <p>Started the family's sweet-making tradition in Bombay, setting down the recipes the brand still follows.</p>
         </div>
         <div class="gen-row">
+          <img class="gen-photo" src="photo-2.jpg" alt="">
           <span class="g-tag">Second Generation</span>
           <h4>Abdul Gafoor Suleman Usman Mithaiwala</h4>
           <p>Carried his father's recipes and standards forward, building the shop into a trusted family name.</p>
         </div>
         <div class="gen-row">
+          <img class="gen-photo" src="photo-3.jpg" alt="">
           <span class="g-tag">Today</span>
-          <h4>Run from our Mumbai head office</h4>
+          <h4>Zubair Mithaiwala, continuing the legacy from our Mumbai head office</h4>
           <p>The family tradition now runs as a growing brand, with a presence across India and the Gulf.</p>
         </div>
       </div>
@@ -721,18 +717,27 @@
         <p>A glimpse of our storefronts, signature sweets and outlet openings across India and the Gulf.</p>
       </div>
       <div class="gal-grid">
-        <div class="gal-tile span2 row2"><img src="flagship-storefront.jpg" alt="Flagship storefront, grand opening" loading="lazy"><span>Flagship storefront — grand opening</span></div>
-        <div class="gal-tile span2"><img src="restaurant-night.jpg" alt="Restaurant outlet at night" loading="lazy"><span>Restaurant outlet by night</span></div>
-        <div class="gal-tile row2"><img src="doodhi-halwa.webp" alt="Doodhi Halwa" loading="lazy"><span>Doodhi Halwa</span></div>
-        <div class="gal-tile"><img src="yellow-peda.jpg" alt="Yellow Peda" loading="lazy"><span>Yellow Peda</span></div>
-        <div class="gal-tile"><img src="gulf-outlet.jpg" alt="Gulf outlet storefront" loading="lazy"><span>Gulf outlet — Dubai · Sharjah · Riyadh</span></div>
-        <div class="gal-tile span2"><img src="anarkali-gulab-jamun.jpg" alt="Anarkali Gulab Jamun" loading="lazy"><span>Anarkali Gulab Jamun</span></div>
-        <div class="gal-tile"><img src="walnut-honey-halwa.jpg" alt="Walnut with Honey Halwa" loading="lazy"><span>Walnut with Honey Halwa</span></div>
-        <div class="gal-tile"><img src="mawa-patice.jpg" alt="Mawa Patice" loading="lazy"><span>Mawa Patice</span></div>
-        <div class="gal-tile"><img src="oreo-malai.png" alt="Oreo Malai" loading="lazy"><span>Oreo Malai</span></div>
-        <div class="gal-tile"><img src="outlet-opening.jpg" alt="New outlet opening" loading="lazy"><span>New outlet opening</span></div>
-        <div class="gal-tile"><img src="punjabi-burfi.webp" alt="Punjabi Burfi" loading="lazy"><span>Punjabi Burfi</span></div>
-        <div class="gal-tile"><img src="kala-jamun.png" alt="Kala Jamun" loading="lazy"><span>Kala Jamun</span></div>
+        <div class="gal-tile span2 row2"><img src="flagship-storefront.jpg" alt="Flagship storefront, grand opening" loading="lazy"></div>
+        <div class="gal-tile span2"><img src="restaurant-night.jpg" alt="Restaurant outlet at night" loading="lazy"></div>
+        <div class="gal-tile row2"><img src="doodhi-halwa.webp" alt="Doodhi Halwa" loading="lazy"></div>
+        <div class="gal-tile"><img src="yellow-peda.jpg" alt="Yellow Peda" loading="lazy"></div>
+        <div class="gal-tile"><img src="gulf-outlet.jpg" alt="Gulf outlet storefront" loading="lazy"></div>
+        <div class="gal-tile span2"><img src="anarkali-gulab-jamun.jpg" alt="Anarkali Gulab Jamun" loading="lazy"></div>
+        <div class="gal-tile"><img src="walnut-honey-halwa.jpg" alt="Walnut with Honey Halwa" loading="lazy"></div>
+        <div class="gal-tile"><img src="mawa-patice.jpg" alt="Mawa Patice" loading="lazy"></div>
+        <div class="gal-tile"><img src="oreo-malai.png" alt="Oreo Malai" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-opening.jpg" alt="New outlet opening" loading="lazy"></div>
+        <div class="gal-tile"><img src="punjabi-burfi.webp" alt="Punjabi Burfi" loading="lazy"></div>
+        <div class="gal-tile"><img src="kala-jamun.png" alt="Kala Jamun" loading="lazy"></div>
+        <div class="gal-tile span2"><img src="outlet-mumbai-hq.jpg" alt="Mumbai head office outlet" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-pune-1.jpg" alt="Pune outlet" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-pune-2.jpg" alt="Pune outlet" loading="lazy"></div>
+        <div class="gal-tile row2"><img src="outlet-bangalore.jpg" alt="Bangalore outlet" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-uae-1.jpg" alt="UAE outlet" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-uae-2.jpg" alt="UAE outlet" loading="lazy"></div>
+        <div class="gal-tile"><img src="outlet-saudi-arabia.jpg" alt="Saudi Arabia outlet" loading="lazy"></div>
+        <div class="gal-tile row2"><img src="traditional-aflatoon.jpg" alt="Traditional Aflatoon" loading="lazy"></div>
+        <div class="gal-tile"><img src="nankhatai.jpg" alt="Nankhatai" loading="lazy"></div>
       </div>
     </div>
   </section>
